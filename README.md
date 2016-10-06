@@ -1,3 +1,3 @@
-## 制作的一些零散的纯css动画
+## 鍒朵綔鐨勪竴浜涢浂鏁ｇ殑绾痗ss鍔ㄧ敾
 
-1. Sharinga写轮眼：[view]()
+1. Sharinga鍐欒疆鐪硷細[view](http://foreverz.cn/CSSAnimation/Sharinga/)

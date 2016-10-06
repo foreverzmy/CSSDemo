@@ -1,0 +1,242 @@
+  body {
+            background-color: black;
+        }
+#face { position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 640px;
+            height: 200px;
+            border: 1px solid #333;
+            background-color: black;
+        }
+        
+        .eye {
+            position: relative;
+            width: 130px;
+            height: 70px;
+            background-color: white;
+            border: 1px solid black;
+            transform: skewX(15deg);
+            border-radius: 0 70px 0 50px;
+            overflow: hidden;
+            transition: all 200ms ease 0s;
+        }
+        
+        .eye.left {
+            float: left;
+            margin-left: 94px;
+            margin-top: 40px;
+        }
+        
+        .eye.right {
+            float: right;
+            margin-right: 94px;
+            margin-top: 40px;
+            transform: rotateY(180deg) skewX(15deg);
+            ;
+        }
+        
+        #face:hover .eye,
+        #face:hover .shadow {
+            border-radius: 0 90% 0 55px;
+        }
+        
+        #face:hover .gogok {
+            display: block;
+            animation: gogok 8s linear;
+            animation-fill-mode: forwards;
+        }
+        
+        #face:hover .b {
+            animation: stote 8s linear;
+            animation-fill-mode: forwards;
+        }
+        
+        #face:hover .i {
+            animation: keke 8s linear;
+            animation-fill-mode: forwards;
+        }
+        
+        .shadow {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            border-radius: 0 70px 0 50px;
+            box-shadow: 5px 12px 2px 5px rgba(0, 0, 0, .25) inset;
+            transition: all 200ms ease 0s;
+        }
+        
+        .iris-pupil {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: black;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            box-shadow: 0 0 0 12px #141313, 0 0 0 24px #1E1C1B, 0 0 2px 32px #221F1E;
+            transform: skewX(-15deg);
+        }
+        
+        .light {
+            position: absolute;
+            left: -18px;
+            top: -12px;
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        
+        .right .light {
+            left: 18px;
+        }
+        
+        .gogok {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 50%;
+            transition-duration: 2s;
+        }
+        
+        .sub_gogok1 {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            transform: rotate(0deg);
+        }
+        
+        .sub_gogok2 {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            transform: rotate(120deg);
+        }
+        
+        .sub_gogok3 {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            transform: rotate(240deg);
+        }
+        
+        .b {
+            position: absolute;
+            left: 20px;
+            display: block;
+            margin: auto;
+            border: 0;
+            width: 8px;
+            height: 8px;
+            border-bottom: 5px solid #000;
+            border-bottom-right-radius: 50px;
+        }
+        
+        .i {
+            opacity: 1;
+            position: absolute;
+            top: 5px;
+            left: 14px;
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: black;
+        }
+        
+        @keyframes gogok {
+            0% {
+                opacity: 0;
+                box-shadow: 0 0 0 12px #141313, 0 0 0 24px #1E1C1B, 0 0 2px 32px #221F1E;
+            }
+            20% {
+                opacity: 0;
+                box-shadow: 0 0 0 12px #141313, 0 0 0 24px #1E1C1B, 0 0 2px 32px #221F1E;
+            }
+            25% {
+                opacity: 1;
+                background-color: #000;
+                transform: rotate(0deg);
+                box-shadow: 0 0 0 12px #f00, 0 0 0 14px #bd0000, 0 0 2px 27px #f00, 0 0 0 30px #bd0000, 0 0 2px 32px #000;
+            }
+            50% {
+                opacity: 1;
+                background-color: #000;
+                transform: rotate(360deg);
+                box-shadow: 0 0 0 12px #f00, 0 0 0 14px #bd0000, 0 0 2px 27px #f00, 0 0 0 30px #bd0000, 0 0 2px 32px #000;
+            }
+            70% {
+                background-color: #fff;
+                box-shadow: 0 0 0 8px #000, 0 0 2px 27px #f00, 0 0 0 30px #bd0000, 0 0 2px 32px;
+            }
+            75% {
+                background-color: #fff;
+                transform: rotate(0deg);
+                box-shadow: 0 0 0 8px #000, 0 0 2px 27px #f00, 0 0 0 30px #bd0000, 0 0 2px 32px;
+            }
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 0 14px #464646, 0 0 0 16px #000, 0 0 2px 30px #6c6c6c, 0 0 0 32px #000, 0 0 0 44px #a6a6a6, 0 0 0 46px #000;
+            }
+        }
+        
+        @keyframes stote {
+            50% {
+                position: absolute;
+                left: 20px;
+                top: 0;
+                display: block;
+                margin: auto;
+                border: 0;
+                width: 8px;
+                height: 8px;
+                border-bottom: 5px solid #000;
+                border-bottom-right-radius: 50px;
+            }
+            70% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 0;
+                left: 0px;
+                top: -5px;
+                width: 28px;
+                height: 25px;
+                border-bottom: 18px solid #000;
+                transform: rotate(80deg);
+            }
+            100% {
+                opacity: 0;
+                left: 20px;
+                width: 8px;
+                height: 8px;
+                border-bottom: 5px solid #000;
+                border-bottom-right-radius: 50px;
+            }
+        }
+        
+        @keyframes keke {
+            49% {
+                opacity: 1
+            }
+            50% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0;
+            }
+        }

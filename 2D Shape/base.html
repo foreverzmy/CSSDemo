@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body,
+    ul,
+    li,
+    dl,
+    dt,
+    dd,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F7F7F7;
+    }
+
+    header {
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    #circle {
+      width: 100px;
+      height: 100px;
+      float: left;
+      background: #6fee1d;
+      border-radius: 50px;
+    }
+
+    #oval {
+      width: 200px;
+      height: 100px;
+      float: left;
+      background: #e9880c;
+      border-radius: 100px / 50px;
+    }
+
+    #triangle {
+      width: 0;
+      height: 0;
+      float: left;
+      border-bottom: 100px solid #fcf706;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+
+    #invertedTriangle {
+      width: 0;
+      height: 0;
+      float: left;
+      border-top: 100px solid #30a3bf;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+
+    #leftTriangle {
+      width: 0;
+      height: 0;
+      float: left;
+      border-top: 50px solid transparent;
+      border-right: 100px solid #466f20;
+      border-bottom: 50px solid transparent;
+    }
+
+    #rightTriangle {
+      width: 0;
+      height: 0;
+      float: left;
+      border-top: 50px solid transparent;
+      border-left: 100px solid #800820;
+      border-bottom: 50px solid transparent;
+    }
+
+    #diamond {
+      width: 100px;
+      height: 100px;
+      float: left;
+      background: #8e00ff;
+      /* Rotate */
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+      margin: 40px 0 10px 100px;
+    }
+
+    #trapezium {
+      height: 0;
+      width: 100px;
+      float: left;
+      border-bottom: 100px solid #dc2500;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+
+    #rectangle {
+      height: 50px;
+      width: 100px;
+      float: left;
+      background: #afe05d;
+    }
+
+    #square {
+      height: 100px;
+      width: 100px;
+      float: left;
+      background: #b02089;
+    }
+
+    #ring {
+      width: 100px;
+      height: 100px;
+      float: left;
+      background-color: white;
+      border-radius: 80px;
+      border: 5px #ffd700 solid;
+    }
+
+    #parallelogram {
+      width: 120px;
+      height: 80px;
+      float: left;
+      margin-left: 10px;
+      transform: skew(30deg);
+      background-color: #2eda01;
+    }
+
+    #fiveStar {
+      width: 0;
+      height: 0;
+      float: left;
+      margin: 20px 20px;
+      color: #ff0012;
+      position: relative;
+      display: block;
+      border-right: 80px solid transparent;
+      border-bottom: 60px solid #ff0012;
+      border-left: 80px solid transparent;
+      transform: rotate(35deg);
+    }
+
+    #fiveStar::before {
+      height: 0;
+      width: 0;
+      content: '';
+      position: absolute;
+      display: block;
+      top: -35px;
+      left: -50px;
+      border-bottom: 60px solid #ff0012;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      transform: rotate(-35deg);
+    }
+
+    #fiveStar::after {
+      width: 0;
+      height: 0;
+      content: '';
+      position: absolute;
+      display: block;
+      top: 3px;
+      left: -85px;
+      color: #ff0012;
+      border-right: 80px solid transparent;
+      border-bottom: 60px solid #ff0012;
+      border-left: 80px solid transparent;
+      transform: rotate(-70deg);
+    }
+
+    #sixStar {
+      width: 0;
+      height: 0;
+      float: left;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid #cfd810;
+      position: relative;
+    }
+
+    #sixStar::before {}
+
+    #sixStar::before {
+      width: 0;
+      height: 0;
+      content: "";
+      border-top: 100px solid #cfd810;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      position: absolute;
+      top: 30px;
+      left: -50px;
+    }
+
+    #hexagon {
+      width: 100px;
+      height: 55px;
+      float: left;
+      background: #000001;
+      position: relative;
+      margin: 10px auto;
+    }
+
+    #hexagon::before {
+      content: "";
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: -25px;
+      left: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 25px solid #000001;
+    }
+
+    #hexagon::after {
+      content: "";
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: -25px;
+      left: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 25px solid #000001;
+    }
+
+    #pentagon {
+      width: 60px;
+      float: left;
+      position: relative;
+      border-width: 52px 20px 0;
+      border-style: solid;
+      border-color: #711ee2 transparent;
+    }
+
+    #pentagon::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: -92px;
+      left: -20px;
+      border-width: 0 50px 40px;
+      border-style: solid;
+      border-color: transparent transparent #711ee2;
+    }
+
+    #octagon {
+      width: 100px;
+      height: 100px;
+      float: left;
+      margin: 10px 10px;
+      background-color: #66e006;
+      position: relative;
+    }
+
+    #octagon::before {
+      width: 42px;
+      height: 0;
+      top: 0;
+      left: 0;
+      position: absolute;
+      content: "";
+      border-left: 29px solid #ffffff;
+      border-right: 29px solid #ffffff;
+      border-bottom: 29px solid #66e006;
+    }
+
+    #octagon::after {
+      width: 42px;
+      height: 0;
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      content: "";
+      border-left: 29px solid #ffffff;
+      border-right: 29px solid #ffffff;
+      border-top: 29px solid #66e006;
+    }
+
+    #heart {
+      float: left;
+      position: relative;
+    }
+
+    #heart::before,
+    #heart::after {
+      content: "";
+      width: 70px;
+      height: 115px;
+      position: absolute;
+      background: red;
+      left: 70px;
+      top: 0;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    #heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    #egg {
+      width: 100px;
+      height: 160px;
+      float: left;
+      background: #ffb028;
+      display: block;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    }
+
+    #infinity {
+      width: 220px;
+      height: 100px;
+      float: left;
+      position: relative;
+    }
+
+    #infinity::before,
+    #infinity::after {
+      content: "";
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 20px solid #008bb0;
+      border-radius: 50px 50px 0 50px;
+      transform: rotate(-45deg);
+    }
+
+    #infinity::after {
+      left: auto;
+      right: 0;
+      -moz-border-radius: 50px 50px 50px 0;
+      border-radius: 50px 50px 50px 0;
+      transform: rotate(45deg);
+    }
+
+    #commentBubble {
+      width: 140px;
+      height: 100px;
+      margin: 30px 20px;
+      float: left;
+      background: #8867b9;
+      position: relative;
+      border-radius: 12px;
+    }
+
+    #commentBubble::before {
+      content: "";
+      width: 0;
+      height: 0;
+      right: 100%;
+      top: 38px;
+      position: absolute;
+      border-top: 13px solid transparent;
+      border-right: 26px solid #8867b9;
+      border-bottom: 13px solid transparent;
+    }
+
+    #diamonds {
+      width: 50px;
+      height: 0;
+      float: left;
+      border-style: solid;
+      border-color: transparent transparent #9aff02 transparent;
+      border-width: 0 25px 25px 25px;
+      position: relative;
+      margin: 20px 0 50px 0;
+    }
+
+    #diamonds::after {
+      width: 0;
+      height: 0;
+      top: 25px;
+      left: -25px;
+      border-style: solid;
+      border-color: #9aff02 transparent transparent transparent;
+      border-width: 70px 50px 0 50px;
+      position: absolute;
+      content: "";
+    }
+
+    #eightDiagrams {
+      width: 96px;
+      height: 48px;
+      margin: 20px 20px;
+      float: left;
+      background-color: #ffffff;
+      border-color: #000000;
+      border-style: solid;
+      border-width: 2px 2px 50px 2px;
+      border-radius: 100%;
+      position: relative;
+    }
+
+    #eightDiagrams::before {
+      width: 12px;
+      height: 12px;
+      top: 50%;
+      left: 0;
+      content: "";
+      position: absolute;
+      background-color: #ffffff;
+      border: 18px solid #000000;
+      border-radius: 100%;
+    }
+
+    #eightDiagrams::after {
+      width: 12px;
+      height: 12px;
+      top: 50%;
+      left: 50%;
+      background-color: #000000;
+      border: 18px solid #ffffff;
+      border-radius: 100%;
+      content: "";
+      position: absolute;
+    }
+
+    #pacMan {
+      width: 0;
+      height: 0;
+      float: left;
+      border-right: 60px solid transparent;
+      border-left: 60px solid #300fed;
+      border-top: 60px solid #300fed;
+      border-bottom: 60px solid #300fed;
+      border-top-left-radius: 60px;
+      border-top-right-radius: 60px;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+    }
+
+    #sector {
+      width: 0;
+      height: 0;
+      float: left;
+      background-color: #ffffff;
+      border-left: 70px solid transparent;
+      border-right: 70px solid transparent;
+      border-top: 100px solid #ab9ed1;
+      border-radius: 50%;
+    }
+
+    #rescentMoon {
+      width: 80px;
+      height: 80px;
+      float: left;
+      background-color: #ffffff;
+      border-radius: 50%;
+      box-shadow: 15px 15px 0 0 #9600d2;
+    }
+
+    #topLeftTriangle {
+      width: 0px;
+      height: 0px;
+      margin: 10px 10px;
+      float: left;
+      border-top: 100px solid #7efde1;
+      border-right: 100px solid transparent;
+    }
+
+    #topRightTriangle {
+      width: 0px;
+      height: 0px;
+      margin: 10px 10px;
+      float: left;
+      border-top: 100px solid #400526;
+      border-left: 100px solid transparent;
+    }
+
+    #bottomLeftTriangle {
+      width: 0px;
+      height: 0px;
+      margin: 10px 10px;
+      float: left;
+      border-bottom: 100px solid #600ffe;
+      border-right: 100px solid transparent;
+    }
+
+    #bottomRightTriangle {
+      width: 0px;
+      height: 0px;
+      margin: 10px 10px;
+      float: left;
+      border-bottom: 100px solid #ff7578;
+      border-left: 100px solid transparent;
+    }
+
+    #burst8 {
+      width: 80px;
+      height: 80px;
+      margin: 10px 10px;
+      float: left;
+      background-color: #cf7668;
+      position: relative;
+      transform: rotate(20deg);
+    }
+
+    #burst8::after {
+      width: 80px;
+      height: 80px;
+      top: 0;
+      left: 0;
+      background-color: #cf7668;
+      position: absolute;
+      content: "";
+      transform: rotate(135deg);
+    }
+
+    #burst12 {
+      width: 80px;
+      height: 80px;
+      margin: 20px 20px;
+      float: left;
+      background-color: #a8ff26;
+      position: relative;
+      text-align: center;
+    }
+
+    #burst12::before,
+    #burst12::after {
+      width: 80px;
+      height: 80px;
+      top: 0;
+      left: 0;
+      background-color: #a8ff26;
+      position: absolute;
+      content: "";
+    }
+
+    #burst12::before {
+      transform: rotate(30deg);
+    }
+
+    #burst12::after {
+      transform: rotate(60deg);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1> CSS 边框圆角 </h1>
+  </header>
+  <div id="circle"></div>
+  <div id="oval"></div>
+  <div id="triangle"></div>
+  <div id="invertedTriangle"></div>
+  <div id="leftTriangle"></div>
+  <div id="rightTriangle"></div>
+  <div id="diamond"></div>
+  <div id="trapezium"></div>
+  <div id="rectangle"></div>
+  <div id="square"></div>
+  <div id="ring"></div>
+  <div id="parallelogram"></div>
+  <div id="fiveStar"></div>
+  <div id="sixStar"></div>
+  <div id="hexagon"></div>
+  <div id="pentagon"></div>
+  <div id="octagon"></div>
+  <div id="heart"></div>
+  <div id="egg"></div>
+  <div id="infinity"></div>
+  <div id="commentBubble"></div>
+  <div id="diamonds"></div>
+  <div id="eightDiagrams"></div>
+  <div id="pacMan"></div>
+  <div id="sector"></div>
+  <div id="rescentMoon"></div>
+  <div id="topLeftTriangle"></div>
+  <div id="topRightTriangle"></div>
+  <div id="bottomLeftTriangle"></div>
+  <div id="bottomRightTriangle"></div>
+  <div id="burst8"></div>
+  <div id="burst12"></div>
+</body>
+
+</html>
